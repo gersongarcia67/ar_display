@@ -1,0 +1,84 @@
+
+
+# Build image
+# $ docker build -t ar_display_img .
+
+# Start container
+# $ docker run -it --name ar_display -v $(pwd):/app -v $(pwd)/variables:/data -v $(pwd)/../htdocs:/htdocs -v $(pwd)/templates:/templates  -p 5050:5050 -p 5051:5051 -d ar_display_img:latest
+
+.
+├── app.py
+├── Dockerfile
+├── __pycache__
+│   └── app.cpython-38.pyc
+├── readme
+├── README
+├── requirements.txt
+├── static
+│   ├── data
+│   │   ├── 00.patt
+│   │   ├── 01.patt
+│   │   ├── alpha.patt
+│   │   ├── beta.patt
+│   │   ├── camera_para.dat
+│   │   ├── delta.patt
+│   │   ├── epsilon.patt
+│   │   ├── gamma.patt
+│   │   ├── hiro.patt
+│   │   ├── kanji.patt
+│   │   ├── lambda.patt
+│   │   ├── letterA.patt
+│   │   ├── letterB.patt
+│   │   ├── letterC.patt
+│   │   ├── letterD.patt
+│   │   ├── letterF.patt
+│   │   ├── letterG.patt
+│   │   ├── LS.patt
+│   │   └── phi.patt
+│   ├── fonts
+│   │   ├── Exo2Bold.fnt
+│   │   ├── Exo2Bold.png
+│   │   ├── exoBlackItalic.typeface.json
+│   │   ├── exoBlack.typeface.json
+│   │   ├── helvetiker_bold.typeface.json
+│   │   └── helvetiker_regular.typeface.json
+│   ├── images
+│   │   ├── basketball.png
+│   │   ├── border.png
+│   │   ├── box-sides
+│   │   │   ├── xneg.png
+│   │   │   ├── xpos.png
+│   │   │   ├── yneg.png
+│   │   │   ├── ypos.png
+│   │   │   ├── zneg.png
+│   │   │   └── zpos.png
+│   │   ├── color-grid.png
+│   │   ├── earth-flat.jpg
+│   │   ├── earth-sphere.jpg
+│   │   ├── particles
+│   │   │   ├── circle.png
+│   │   │   ├── diamond.png
+│   │   │   ├── drop.png
+│   │   │   ├── snowflake.png
+│   │   │   ├── sparkle.png
+│   │   │   └── star.png
+│   │   ├── pixels.png
+│   │   ├── sphere-pos-neg.png
+│   │   ├── tiles.jpg
+│   │   └── water.jpg
+│   └── js
+│       ├── aframe-ar.js
+│       ├── aframe-ar.min.js
+│       ├── aframe-master.js
+│       ├── aframe.min.js
+│       ├── aframe-multisrc-component.js
+│       ├── aframe-particle-system-component.js
+│       ├── aframe-text-geometry-component.min.js
+│       └── ar.js
+├── templates
+│   ├── index.html
+│   └── index.html.j2
+└── variables
+    └── esp8266.json
+
+10 directories, 63 files

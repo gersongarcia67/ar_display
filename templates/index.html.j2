@@ -1,0 +1,47 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>{{ devicename }}</title>
+    <meta http-equiv="refresh" content="10">
+</head>
+
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="{{ '{{' }} url_for('static', filename='js/aframe.min.js') {{ '}}' }}"></script>
+<script src="{{ '{{' }} url_for('static', filename='js/aframe-ar.js') {{ '}}' }}"></script>
+
+<!-- support 3D text -->
+<script src="{{ '{{' }} url_for('static', filename='js/aframe-text-geometry-component.min.js') {{ '}}' }}"></script>
+<script>
+function readfile() {
+    document.getElementById('iframe').contentDocument.body.firstChild.innerHTML;
+}
+</script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+
+	<a-assets>
+		<a-asset-item id="exoFont" src="{{ '{{' }} url_for('static', filename='fonts/exoBlack.typeface.json') {{ '}}' }}"></a-asset-item>
+		<img id="pixels" src="{{ '{{' }} url_for('static', filename='images/pixels.png') {{ '}}' }}" />
+	</a-assets>
+
+	<!-- 2D text -->
+	<a-marker type="pattern" url="{{ '{{' }} url_for('static', filename='data/00.patt') {{ '}}' }}">
+	
+		<!-- positioning a plane directly below text for increased visibility; need to adjust position to avoid z-fighting.  -->
+		<a-plane color="white" rotation="-90 0 0" position="0 -0.25 0" width="3" height="2" material="transparent: true; opacity: 0.5"></a-plane>
+
+		<!-- for more properties, see https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
+		<a-text value="{{ devicename }}\n\nTemp: {{ temp_c }}\nHumid: {{ humidit }}" font="{{ '{{' }} url_for('static', filename='fonts/Exo2Bold.fnt') {{ '}}' }}" color="blue" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
+		
+		<!-- avoiding z-fighting is difficult; may want to render canvas to text instead -->
+
+	</a-marker>
+
+    <a-entity camera></a-entity>
+    
+</a-scene>
+</body>
+</html>
